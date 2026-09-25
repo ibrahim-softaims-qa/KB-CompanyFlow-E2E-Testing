@@ -13,9 +13,11 @@
     "watch": "ng build --watch --configuration development",
     "serve:dist": "node tools/serve-dist.mjs",
     "test": "ng test",
-    "e2e": "playwright test",
+    "e2e": "node tools/run-e2e-with-fallback.mjs",
     "e2e:ui": "playwright test --ui",
     "e2e:headed": "playwright test --headed",
+    "e2e:smoke": "node tools/run-e2e-with-fallback.mjs --grep @smoke",
+    "e2e:regression": "node tools/run-e2e-with-fallback.mjs --grep-invert @smoke",
     "e2e:report": "playwright show-report"
   },
   "dependencies": {
@@ -39,6 +41,7 @@
     "@angular/cli": "^22.0.1",
     "@angular/compiler-cli": "^22.0.0",
     "@playwright/test": "^1.60.0",
+    "@types/node": "^22.20.4",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",

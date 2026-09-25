@@ -24,10 +24,17 @@
         </mat-form-field>
 
         @if (failed()) {
-          <p class="login-failed">{{ 'login.failed' | translate }}</p>
+          <p class="login-failed" data-testid="login-error">{{ 'login.failed' | translate }}</p>
         }
 
-        <button mat-flat-button color="primary" type="submit" class="full" [disabled]="submitting()">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          class="full"
+          [disabled]="submitting()"
+          data-testid="login-submit"
+        >
           {{ 'login.submit' | translate }}
         </button>
       </form>

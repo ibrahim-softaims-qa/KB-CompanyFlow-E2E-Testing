@@ -2,20 +2,20 @@
   <span class="shell-title">{{ 'shell.title' | translate }}</span>
 
   <nav class="shell-nav">
-    <a mat-button routerLink="/dashboard" routerLinkActive="active-link">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active-link" data-testid="nav-dashboard">
       {{ 'nav.dashboard' | translate }}
     </a>
-    <a mat-button routerLink="/clients" routerLinkActive="active-link">
+    <a mat-button routerLink="/clients" routerLinkActive="active-link" data-testid="nav-clients">
       {{ 'nav.clients' | translate }}
     </a>
-    <a mat-button routerLink="/tasks" routerLinkActive="active-link">
+    <a mat-button routerLink="/tasks" routerLinkActive="active-link" data-testid="nav-tasks">
       {{ 'nav.tasks' | translate }}
     </a>
-    <a mat-button routerLink="/time" routerLinkActive="active-link">
+    <a mat-button routerLink="/time" routerLinkActive="active-link" data-testid="nav-time">
       {{ 'nav.time' | translate }}
     </a>
     @if (isAdmin()) {
-      <a mat-button routerLink="/users" routerLinkActive="active-link">
+      <a mat-button routerLink="/users" routerLinkActive="active-link" data-testid="nav-users">
         {{ 'nav.users' | translate }}
       </a>
     }
@@ -23,25 +23,25 @@
 
   <span class="shell-spacer"></span>
 
-  <button mat-button [matMenuTriggerFor]="langMenu" aria-label="Language">
+  <button mat-button [matMenuTriggerFor]="langMenu" aria-label="Language" data-testid="language-menu-button">
     <mat-icon>language</mat-icon>
   </button>
   <mat-menu #langMenu="matMenu">
-    <button mat-menu-item (click)="switchLanguage('en')">English</button>
-    <button mat-menu-item (click)="switchLanguage('nb')">Norsk</button>
+    <button mat-menu-item (click)="switchLanguage('en')" data-testid="language-option-en">English</button>
+    <button mat-menu-item (click)="switchLanguage('nb')" data-testid="language-option-nb">Norsk</button>
   </mat-menu>
 
-  <button mat-button (click)="reset()" [disabled]="resetting()">
+  <button mat-button (click)="reset()" [disabled]="resetting()" data-testid="reset-data-button">
     <mat-icon>restart_alt</mat-icon>
     {{ 'shell.reset' | translate }}
   </button>
 
-  <button mat-button [matMenuTriggerFor]="userMenu">
+  <button mat-button [matMenuTriggerFor]="userMenu" data-testid="user-menu-button">
     <mat-icon>account_circle</mat-icon>
     {{ displayName() }}
   </button>
   <mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="logout()">
+    <button mat-menu-item (click)="logout()" data-testid="logout-button">
       <mat-icon>logout</mat-icon>
       {{ 'shell.logout' | translate }}
     </button>

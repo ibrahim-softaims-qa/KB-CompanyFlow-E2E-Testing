@@ -79,6 +79,8 @@ Then:
 npm run e2e          # run all tests (Playwright builds/serves the app for you)
 npm run e2e:ui       # interactive UI mode — the easiest way to write tests
 npm run e2e:report   # open the last HTML report
+npm run e2e:smoke        # just the tests tagged @smoke — fast sanity check
+npm run e2e:regression   # everything except @smoke — the full suite minus that subset
 ```
 
 **Fastest feedback loop:** run `npm start` in one terminal (dev server, hot reload) and

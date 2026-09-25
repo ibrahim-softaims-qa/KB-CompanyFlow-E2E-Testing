@@ -51,3 +51,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Local env for the e2e suite (see .env.example)
+/.env

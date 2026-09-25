@@ -44,7 +44,7 @@
 
   <div class="cv-tasks-header">
     <h2>{{ 'tasks.title' | translate }}</h2>
-    <button mat-flat-button color="primary" (click)="startCreate()">
+    <button mat-flat-button color="primary" (click)="startCreate()" data-testid="new-task-button">
       <mat-icon>add_task</mat-icon>
       {{ 'tasks.new' | translate }}
     </button>
@@ -56,7 +56,7 @@
         <form [formGroup]="form" (ngSubmit)="saveTask()" class="task-form">
           <mat-form-field appearance="outline" class="grow">
             <mat-label>{{ 'tasks.taskTitle' | translate }}</mat-label>
-            <input matInput formControlName="title" />
+            <input matInput formControlName="title" data-testid="task-title-input" />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>{{ 'tasks.dueDate' | translate }}</mat-label>
@@ -88,7 +88,9 @@
           </mat-form-field>
           <div class="task-form-actions">
             <button mat-button type="button" (click)="cancelForm()">{{ 'tasks.cancel' | translate }}</button>
-            <button mat-flat-button color="primary" type="submit">{{ 'tasks.save' | translate }}</button>
+            <button mat-flat-button color="primary" type="submit" data-testid="task-save-button">
+              {{ 'tasks.save' | translate }}
+            </button>
           </div>
         </form>
       </mat-card-content>
